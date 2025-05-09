@@ -35,19 +35,13 @@ cd notes-aspnetcore-react-ts
    cd backend
    ```
 
-2. 
-
-   ```bash
-   dotnet add package Microsoft.EntityFrameworkCore.InMemory
-   ```
-
-3. Restaura los paquetes NuGet y construye el proyecto:
+2. Restaura los paquetes NuGet y construye el proyecto:
 
    ```bash
    dotnet build
    ```
 
-4. Ejecuta la API:
+3. Ejecuta la API:
 
    ```bash
    dotnet run
