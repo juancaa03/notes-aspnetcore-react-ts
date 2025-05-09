@@ -10,21 +10,26 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<NotesContext>(opt =>
     opt.UseInMemoryDatabase("NotesList"));
 
-// 3. CORS: leemos de appsettings.json las cadenas y las parseamos
-var corsSection = builder.Configuration.GetSection("Cors");
-var origins = corsSection["Origins"]?
-    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-    ?? Array.Empty<string>();
-var methods = corsSection["Methods"]?
-    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+// 3. CORS: leemos arrays directamente de configuración
+var corsOrigins = builder.Configuration
+    .GetSection("Cors:Origins")
+    .Get<string[]>() 
     ?? Array.Empty<string>();
 
-builder.Services.AddCors(opt =>
+var corsMethods = builder.Configuration
+    .GetSection("Cors:Methods")
+    .Get<string[]>() 
+    ?? Array.Empty<string>();
+
+builder.Services.AddCors(options =>
 {
-    opt.AddPolicy("CorsPolicy", policy =>
-        policy.WithOrigins(origins)
-              .WithMethods(methods)
-              .AllowAnyHeader());
+    options.AddPolicy("CorsPolicy", policy =>
+    {
+        policy
+          .WithOrigins(corsOrigins)
+          .WithMethods(corsMethods)
+          .AllowAnyHeader();
+    });
 });
 
 // 4. Añadimos controladores (NotesController)

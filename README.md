@@ -11,7 +11,7 @@ Este repositorio contiene una aplicación de una prueba técnica **full-stack** 
 
 Antes de empezar, asegúrate de tener instalados en tu sistema:
 
-* [.NET SDK 6.0 o superior](https://dotnet.microsoft.com/download)
+* [.NET SDK 9.0 o superior](https://dotnet.microsoft.com/download)
 * [Node.js LTS (>= 18.x)](https://nodejs.org)
 * Git
 
@@ -35,14 +35,19 @@ cd notes-aspnetcore-react-ts
    cd backend
    ```
 
-2. Restaura los paquetes NuGet y construye el proyecto:
+2. 
 
    ```bash
-   dotnet restore
+   dotnet add package Microsoft.EntityFrameworkCore.InMemory
+   ```
+
+3. Restaura los paquetes NuGet y construye el proyecto:
+
+   ```bash
    dotnet build
    ```
 
-3. Ejecuta la API:
+4. Ejecuta la API:
 
    ```bash
    dotnet run
