@@ -89,3 +89,6 @@ cd notes-aspnetcore-react-ts
 * El frontend consume la API a través de la variable `VITE_API_URL`.
 * Puedes personalizar orígenes y metodos de CORS en `appsettings.json` del backend.
 
+* Aunque no había trabajado antes con .NET ni con TypeScript, he usado otras tecnologías como Node.js o React y aprendo rápido.
+* En el perfil de Github tengo algunos proyectos recientes. Gracias!
+
