@@ -1,5 +1,3 @@
-
-dotnet add package Microsoft.EntityFrameworkCore.InMemory
 # Notes ASP.NET Core + React + TypeScript
 
 Este repositorio contiene una aplicación de una prueba técnica **full-stack** de notas:
